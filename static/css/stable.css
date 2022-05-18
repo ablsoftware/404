@@ -1,0 +1,136 @@
+/*
+	SimUI Stylesheet File
+	Written by YanJi.
+	© SimSoft, All Rights Reserved.
+*/
+
+/*全局样式*/
+body{background:rgb(220, 220, 220);margin:5px;margin-top:60px;margin-bottom:50px;scrollbar-width:none;transition:margin-top .2s}
+body.dark{background:#333333}
+body.su-no-header{margin-top:5px;}
+body.su-no-footer{margin-bottom:5px}
+body:not(.su-loaded) *{transition:all 0s!important;}
+*{user-select:none;box-sizing:border-box;font-family:微软雅黑;outline:none;scrollbar-width:none;}
+a{color:#1e9fff;text-decoration:none;}
+a:hover{text-decoration:underline;}
+a:active{opacity:.8;}
+::-webkit-scrollbar{display:none;}
+::selection{background:rgb(30, 158, 255);color:white;}
+
+/*公共组件*/
+.su-btn{margin-bottom:7px;background:#1e9fff;color:white;transition:all .2s;padding:5px;text-align:center;border-radius:5px;}
+.dark .su-btn{color:white;}
+.su-btn:hover{background:#0084e9;}
+.su-btn:active{background:#0084e9;color:#b0ddff}
+
+.su-input{background:white;transition:all .2s;margin-bottom:7px;border:1px solid white;padding:8px;border-radius:5px;font-size:1em;display:block;}
+.su-box .su-input,.su-dialog .su-input{background:#eee;border:1px solid #eee}
+.dark .su-input{color:white;background:#444444;border:1px solid #444444;}
+.dark .su-box .su-input,.dark .su-dialog .su-input{background:#4e4e4e;border:1px solid #4e4e4e;}
+.su-input::placeholder{transition:all .2s;}
+.dark .su-input::placeholder{color:rgb(200, 200, 200);}
+.su-input:focus{border:1px solid #1e9fff!important;background:white;}
+.dark .su-input:focus{background:black;}
+.su-input:focus::placeholder{color:transparent;}
+
+.su-box{background:white;transition:all .2s;margin-bottom:7px;border:1px solid white;padding:8px;border-radius:5px;display:block;}
+.su-box .su-box,.su-dialog .su-box{background:#eee;}
+.dark .su-box{color:white;background:#444444;border:1px solid #444444;}
+.dark .su-box .su-box,.dark .su-dialog .su-box{background:#4e4e4e;}
+
+.su-switcher-container{width:100%;text-align:center;padding:10px;}
+.su-switcher{transition:all .2s;padding:5px 20px 5px 20px;margin:5px;display:inline-block;background:rgba(255,255,255,.5);border-radius:5px;border-bottom:2px solid rgba(255,255,255,.5);}
+.su-switcher:hover{background:#d8eeff;border-bottom:2px solid #d8eeff}
+.su-switcher:active{color:#003863;}
+.dark .su-switcher{background:rgba(255,255,255,.05);border-bottom:2px solid transparent;color:white;}
+.su-switcher.focus{background:#1e9fff;color:white;border-bottom:2px solid rgba(255,255,255,.5);}
+.su-pageswitch-container{transition:all .2s;overflow:hidden;white-space:nowrap;text-align:center;}
+.su-pageswitch{vertical-align:top;overflow:hidden;display:inline-block;width:calc(100vw - 28px);white-space:normal;text-align:left;}
+.su-pageswitch-box{width:100%;overflow:hidden;transition:height .2s;height:0px;}
+
+.su-select{user-select:all;}
+
+.logo-dark{display:none}
+.dark .logo-dark{display:inline}
+.dark .logo-light{display:none;}
+
+/*加载动画*/
+.su-loading{position:relative;animation: loading .5s linear 0s infinite;display:inline-block;width:30px;height:30px;}
+.su-loading::before{position:absolute;top:0;bottom:0;left:0;margin:auto;display:inline-block;content:"";background:#1e9fff;width:10px;height:10px;border-radius:5px;}
+.su-loading::after{position:absolute;top:0;bottom:0;right:0;margin:auto;display:inline-block;content:"";background:#1e9fff;width:10px;height:10px;border-radius:5px;}
+@keyframes loading {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+
+/*顶栏部分*/
+header{position:fixed;top:0;left:0;right:0;z-index:10;box-shadow:0 0 3px 0 rgba(0,0,0,.4);padding:5px;background:rgba(255,255,255,.7);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);height:50px;transition:top .2s}
+.dark header{background:rgba(0,0,0,.4)}
+.su-title{position:absolute;top:0;bottom:0;left:10px;margin:auto;height:-moz-fit-content;height:fit-content;}
+.su-title span:nth-child(1){font-size:2em;}
+.dark .su-title span:nth-child(1){color:white;}
+.su-title span:nth-child(2){color:#1e9fff;font-size:2em;font-weight:bold}
+.su-menuico svg{position:absolute;top:0;bottom:0;right:10px;margin:auto;width:30px;height:30px;}
+.dark .su-menuico svg path{fill:white!important;}
+.su-menuico:hover svg path{fill:#1e9fff!important;}
+.su-menuico:active{opacity:.8;}
+
+/*底栏部分*/
+footer{user-select:text;transition:bottom .2s;position:fixed;bottom:0px;left:0px;right:0px;z-index:10;box-shadow:0 0 3px 0 rgba(0,0,0,.4);padding:2px;background:rgba(255,255,255,.7);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:.95em;text-align:center;color:#757575;}
+.dark footer{background:rgba(0,0,0,.4);color:rgb(185, 185, 185)}
+
+/*菜单*/
+.su-menu{opacity:0;height:0;overflow:hidden;width:200px;position:fixed;top:55px;right:5px;z-index:10;border-radius:5px;box-shadow:0 0 3px 0 rgba(0,0,0,.4);background:rgba(255,255,255,.7);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);max-height:calc(100% - 100px);overflow-y:scroll;}
+.dark .su-menu{background:rgba(0,0,0,.7);color:white;}
+.su-menu.open{height:-moz-fit-content;height:fit-content;animation:openMenu .2s;opacity:1;}
+.su-menu.closed{animation:closeMenu .2s;opacity:0;}
+.su-menu .item{transition:all .2s;padding:10px;}
+.su-menu .item:hover{background:rgba(0,0,0,.1);}
+.dark .su-menu .item:hover{background:rgba(255,255,255,.1);}
+.su-menu .item:active{opacity:.6;}
+@keyframes openMenu{
+	from{transform:translateY(-10px);opacity:0;display:block;}
+	to{transform:translateY(0px);opacity:1;display:block;}
+}
+@keyframes closeMenu{
+	from{height:-moz-fit-content;height:fit-content;transform:translateY(0px);opacity:1;display:block;}
+	to{height:-moz-fit-content;height:fit-content;transform:translateY(-10px);opacity:0;display:block;}
+}
+
+/*对话框*/
+.su-dialog{display:none;overflow:hidden;z-index:21;box-shadow:0 0 3px 0 rgba(0,0,0,.4);width:80vw;max-width:500px;position:fixed;top:0;bottom:0;left:0;right:0;margin:auto;background:white;border-radius:5px;padding:20px;}
+@media screen and (max-width: 400px) {.su-dialog{width:calc(100vw - 10px);}}
+.dark .su-dialog{border:1px solid #474747;background:black;color:white;box-shadow:0 0 5px 0 rgba(255,255,255,.3);}
+.su-dialog .title{width:100%;font-size:1.5em;font-weight:bold;}
+.su-dialog .content{user-select:text;padding-top:10px;padding-bottom:20px;}
+.su-dialog .btn{font-size:.95em;width:80px;margin-left:calc(100% - 80px);margin-bottom:0;}
+.su-dialog .btn-group{text-align:right;}
+.su-dialog .btn-group .su-btn{font-size:.95em;display:inline-block;text-align:center;margin-left:7px;width:80px;margin-bottom:0;}
+.su-dialog-mask{animation:maskFadeIn .3s;background:rgba(0,0,0,.3);position:fixed;top:0;bottom:0;left:0;right:0;z-index:20}
+.su-dialog.open{animation:openDialog .3s;display:block;}
+.su-dialog.closed{opacity:0;animation:closeDialog .3s;display:block;}
+@keyframes openDialog{from{transform:translateY(10px);opacity:0;display:block;}to{transform:translateY(0px);opacity:1;display:block;}}
+@keyframes closeDialog{from{transform:translateY(0px);opacity:1;display:block;}to{transform:translateY(10px);opacity:0;display:block;}}
+@keyframes maskFadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes maskFadeOut{from{opacity:1;}to{opacity:0;}}
+
+
+/*消息框*/
+.su-msg{backdrop-filter:blur(5px);position:fixed;bottom:60px;left:0;right:0;width:300px;animation:msgFadeIn .3s;box-shadow:0 0 3px 0 rgba(0,0,0,.4);border-radius:5px;background:rgba(255,255,255,.7);padding:10px;margin:auto;z-index:30;}
+.dark .su-msg{background:rgba(0,0,0,.7);box-shadow:0 0 5px 0 rgba(255,255,255,.3);border:1px solid rgba(200,200,200,.5);color:rgba(235,235,235)}
+.su-msg.fadeout{opacity:0;animation:msgFadeOut .2s;}
+@keyframes msgFadeIn{from{transform:translateY(10px);opacity:0;display:block;}to{transform:translateY(0px);opacity:1;display:block;}}
+@keyframes msgFadeOut{from{transform:translateY(0px);opacity:1;display:block;}to{transform:translateY(10px);opacity:0;display:block;}}
+
+/*适配手机输入法弹出*/
+@media screen and (max-height: 400px) {
+    .su-flex header{top:-100px}
+    .su-flex footer{bottom:-100px}
+    body.su-flex{margin-top:5px}
+}
+
+/*常见css快速应用*/
+.su-iblock{display:inline-block;}
+.su-block{display:block;}
+.su-full-width{width:100%}
+.su-full-height{height:100%;}
+.su-vmiddle{display:inline-block;vertical-align:middle;}
+.su-text-overflow{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;display:inline-block;}
+
